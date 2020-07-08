@@ -2,12 +2,32 @@
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Dice Roller
+        <p style='font-size:48px;'>&#9860;</p>Roller
       </mat-panel-title>
-      <mat-panel-description>
-        Roll some dices!
-      </mat-panel-description>
+      <!-- <mat-panel-description>
+        Roll'em!
+      </mat-panel-description> -->
     </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
+    <div fxFlex="1 1 auto" fxLayoutGap="10px" fxLayout="row" fxLayout.xs="column">
+
+        <mat-form-field fxFlex>
+          <mat-label>Type</mat-label>
+          <mat-select #type value="d10">
+            <mat-option value="d10">d10</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <h4 class="example-h2">Success threshold</h4>
+        <mat-slider fxFlex
+          min="1"
+          max="10"
+          step="1"
+          thumbLabel="true"
+          tickInterval="auto"
+          value="6">
+        </mat-slider>
+
+    </div>
+
   </mat-expansion-panel>
 </mat-accordion>
