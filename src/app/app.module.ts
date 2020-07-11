@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,10 +16,12 @@ import { AppComponent } from './app.component';
 import { GmMainComponent } from './gm-main/gm-main.component';
 import { GmMainNavComponent } from './gm-main-nav/gm-main-nav.component';
 import { GmMainRollerComponent } from './gm-main-roller/gm-main-roller.component';
+import { GmMainMapComponent } from './gm-main-map/gm-main-map.component';
 
 @NgModule({
-	declarations: [ AppComponent, GmMainComponent, GmMainNavComponent, GmMainRollerComponent ],
+	declarations: [ AppComponent, GmMainComponent, GmMainNavComponent, GmMainRollerComponent, GmMainMapComponent ],
 	imports: [
+		FormsModule,
 		BrowserAnimationsModule,
 		MatSliderModule,
 		AppRoutingModule,

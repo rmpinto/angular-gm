@@ -2,32 +2,62 @@
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <p style='font-size:48px;'>&#9860;</p>Roller
+        <div class="panel-title-icon">
+          <span><mat-icon>border_outer</mat-icon></span>
+        </div>
+        <div class="panel-title-title">
+          <h2>DICES</h2>
+        </div>
       </mat-panel-title>
-      <!-- <mat-panel-description>
-        Roll'em!
-      </mat-panel-description> -->
     </mat-expansion-panel-header>
-    <div fxFlex="1 1 auto" fxLayoutGap="10px" fxLayout="row" fxLayout.xs="column">
+    <div fxFlex="1 1 auto" fxLayoutGap="20px" fxLayout="row" fxLayout.xs="column">
 
+      <div fxLayout="column" fxFlex>
+        <p class="mat-caption input-label">Success</p>
+        <div fxLayout="row" fxFlex>
+          <mat-slider fxFlex="80%"
+            min="1" max="10" step="1"
+            thumbLabel="true"
+            tickInterval="auto"
+            [(ngModel)]="successValue">
+          </mat-slider>
+          <div fxFlex="20%">
+            <p class="success-badge">{{ successValue }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="column" class="panel-content" fxFlex>
         <mat-form-field fxFlex>
           <mat-label>Type</mat-label>
           <mat-select #type value="d10">
             <mat-option value="d10">d10</mat-option>
           </mat-select>
         </mat-form-field>
+      </div>
 
-        <h4 class="example-h2">Success threshold</h4>
-        <mat-slider fxFlex
-          min="1"
-          max="10"
-          step="1"
-          thumbLabel="true"
-          tickInterval="auto"
-          value="6">
-        </mat-slider>
+      <div fxLayout="column" class="panel-content" fxFlex>
+        <mat-form-field fxFlex>
+          <mat-label>Dices</mat-label>
+          <mat-select [(ngModel)]="selectedDices">
+            <mat-option *ngFor="let dice of dices" [value]="dice">{{ dice }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="column" class="panel-content" fxFlex>
+        <mat-form-field fxFlex>
+          <mat-label>Rolls</mat-label>
+          <mat-select [(ngModel)]="selectedRolls">
+            <mat-option *ngFor="let roll of rolls" [value]="roll">{{ roll }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="column" class="panel-content" fxFlex>
+        <button mat-flat-button color="primary">Roll them!</button>
+      </div>
 
     </div>
-
   </mat-expansion-panel>
 </mat-accordion>
